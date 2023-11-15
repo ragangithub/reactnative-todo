@@ -9,6 +9,7 @@ import {
   TextInput,
   Pressable,
   Platform,
+  ScrollView,
 } from "react-native";
 import Task from "./components/Task";
 
@@ -25,13 +26,16 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.taskWrapper}>
         <Text style={styles.sectionTitle}>Today's tasks</Text>
-        <View style={styles.items}>
-          <Task text={"Task 1"} />
-          <Task text={"Task 2"} />
-          {taskItems.map((item, index) => {
-            return <Task text={item} key={index} />;
-          })}
-        </View>
+
+        <ScrollView>
+          <View style={styles.items}>
+            {/* <Task text={"Task 1"} /> */}
+            <Task text={"Task 2"} />
+            {taskItems.map((item, index) => {
+              return <Task text={item} key={index} />;
+            })}
+          </View>
+        </ScrollView>
       </View>
 
       <KeyboardAvoidingView
